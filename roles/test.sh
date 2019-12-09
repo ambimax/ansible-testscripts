@@ -40,7 +40,7 @@ function errorExit {
 timestamp=$(date +%s)
 
 # Allow environment variables to override defaults.
-distro=${distro:-"debian10"}
+distro=${distro:-"debian9"}
 playbook=${playbook:-"test.yml"}
 role_dir=${role_dir:-"$PWD"}
 cleanup=${cleanup:-"true"}
