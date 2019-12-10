@@ -76,7 +76,7 @@ elif [ $distro = 'ubuntu1204' ]; then
   opts="--privileged --volume=/var/lib/docker"
 # Debian 10
 elif [ $distro = 'debian10' ]; then
-  init="/lib/systemd/systemd"
+  init=""
   opts="--privileged --volume=/var/lib/docker --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 # Debian 9
 elif [ $distro = 'debian9' ]; then
