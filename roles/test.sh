@@ -108,16 +108,16 @@ else
         --name $container_id $opts geerlingguy/docker-$distro-ansible:latest $init
 fi
 
-# Install requirements if `requirements.yml` is present.
-if [ -f "$role_dir/tests/requirements.yml" ]; then
-  printNormal "Requirements file detected; installing dependencies."
-  ${DOCKER} ansible-galaxy install -r /etc/ansible/roles/role_under_test/tests/requirements.yml
-fi
-
 # Run preparation if `prepare.yml` is present.
 if [ -f "$role_dir/tests/prepare.yml" ]; then
   printNormal "Prepare playbook detected; Running preparation."
   ${DOCKER} ansible-playbook /etc/ansible/roles/role_under_test/tests/prepare.yml
+fi
+
+# Install requirements if `requirements.yml` is present.
+if [ -f "$role_dir/tests/requirements.yml" ]; then
+  printNormal "Requirements file detected; installing dependencies."
+  ${DOCKER} ansible-galaxy install -r /etc/ansible/roles/role_under_test/tests/requirements.yml
 fi
 
 # Test Ansible syntax.
